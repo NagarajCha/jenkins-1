@@ -9,7 +9,7 @@ pipeline {
     stage('Checkout') {
       steps {
         sh 'echo passed'
-        //git branch: 'main', url: 'https://github.com/NagarajCha/Jenkins1'
+        //git branch: 'main', url: 'https://github.com/NagarajCha/Jenkins-1'
       }
     }
     stage('Build and Test') {
@@ -47,7 +47,7 @@ pipeline {
     }
     stage('Update Deployment File') {
         environment {
-            GIT_REPO_NAME = "Jenkins1"
+            GIT_REPO_NAME = "Jenkins-1"
             GIT_USER_NAME = "NagarajCha"
         }
         steps {
