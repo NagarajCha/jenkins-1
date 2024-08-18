@@ -9,7 +9,7 @@ pipeline {
     stage('Checkout') {
       steps {
         sh 'echo passed'
-        //git branch: 'main', url: 'https://github.com/NagarajCha/Jenkins/Jenkins'
+        //git branch: 'main', url: 'https://github.com/NagarajCha/Jenkins1'
       }
     }
     stage('Build and Test') {
@@ -47,13 +47,13 @@ pipeline {
     }
     stage('Update Deployment File') {
         environment {
-            GIT_REPO_NAME = "Jenkins/Jenkins"
+            GIT_REPO_NAME = "Jenkins1"
             GIT_USER_NAME = "NagarajCha"
         }
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                 sh '''
-                    git config user.email "abhishek.xyz@gmail.com"
+                    git config user.email "chabbinagaraj7@gmail.com"
                     git config user.name "NagarajCha"
                     BUILD_NUMBER=${BUILD_NUMBER}
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
